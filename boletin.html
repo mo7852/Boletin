@@ -10,7 +10,11 @@
     />
     <link
       rel="stylesheet"
-      href="https://unpkg.com/phosphor-icons@2.0.3/src/css/icons.css"
+      href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/fill/style.css"
     />
     <style>
       :root {
@@ -339,6 +343,10 @@
         transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         position: relative;
         z-index: 1;
+        font-style: normal;
+        font-weight: 400;
+        display: inline-block;
+        line-height: 1;
       }
 
       section:hover .icon-wrapper i {
@@ -437,6 +445,10 @@
         transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         position: relative;
         z-index: 1;
+        font-style: normal;
+        font-weight: 400;
+        display: inline-block;
+        line-height: 1;
       }
 
       li:hover i {
@@ -447,6 +459,76 @@
       li span {
         position: relative;
         z-index: 1;
+      }
+
+      /* Iconos decorativos inline */
+      .icon-inline {
+        font-size: 1em;
+        color: var(--accent);
+        opacity: 0.75;
+        margin: 0 0.25em;
+        font-style: normal;
+        font-weight: 400;
+        display: inline-block;
+        vertical-align: middle;
+        line-height: 1;
+        transition: all 0.3s ease;
+      }
+
+      .icon-inline:hover {
+        opacity: 1;
+        transform: scale(1.2);
+      }
+
+      /* Badges decorativos */
+      .badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        padding: 0.35rem 0.75rem;
+        background: var(--accent-light);
+        border: 1px solid rgba(220, 38, 38, 0.2);
+        border-radius: 10px;
+        font-size: 0.88em;
+        font-weight: 600;
+        color: var(--accent);
+        margin: 0 0.35rem;
+        white-space: nowrap;
+        transition: all 0.3s ease;
+        box-shadow: 0 2px 4px rgba(220, 38, 38, 0.1);
+      }
+
+      .badge:hover {
+        background: rgba(220, 38, 38, 0.08);
+        border-color: rgba(220, 38, 38, 0.3);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(220, 38, 38, 0.15);
+      }
+
+      .badge i {
+        font-size: 1.15em;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 1;
+        display: inline-block;
+      }
+
+      /* Destacados en texto */
+      .highlight {
+        color: var(--accent);
+        font-weight: 600;
+        position: relative;
+      }
+
+      .highlight::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background: linear-gradient(90deg, var(--accent), transparent);
+        opacity: 0.3;
       }
 
       .footer-note {
@@ -517,6 +599,17 @@
         .footer-note::after {
           display: none;
         }
+
+        .badge {
+          font-size: 0.8em;
+          padding: 0.3rem 0.6rem;
+          margin: 0.2rem;
+        }
+
+        .icon-inline {
+          font-size: 0.95em;
+          margin: 0 0.15em;
+        }
       }
 
       @media (prefers-reduced-motion: reduce) {
@@ -539,9 +632,9 @@
         </div>
         <h1>Prevención Franquicias Internacionales</h1>
         <p>
-          Traslados nocturnos seguros de casa al trabajo y regreso. Objetivo:
-          mantener la atención activa, leer el entorno y anticipar riesgos para
-          proteger tu integridad.
+          <i class="ph ph-moon icon-inline"></i> Traslados nocturnos seguros de casa al trabajo y regreso.
+          <span class="highlight">Objetivo:</span> mantener la atención activa <i class="ph ph-eye icon-inline"></i>,
+          leer el entorno y anticipar riesgos para proteger tu integridad <i class="ph ph-shield-check icon-inline"></i>.
         </p>
       </header>
 
@@ -550,23 +643,27 @@
           <div class="icon-wrapper"><i class="ph ph-compass"></i></div>
           <div class="content">
             <h2>Preparación Inteligente</h2>
-            <p>Acciones clave antes de salir y al llegar a tu destino.</p>
+            <p>
+              <i class="ph ph-check-circle icon-inline"></i> Acciones clave
+              <span class="badge"><i class="ph ph-clock"></i>Antes de salir</span>
+              y al llegar a tu destino <i class="ph ph-map-pin icon-inline"></i>.
+            </p>
             <ul>
               <li>
                 <i class="ph ph-passport"></i>
-                <span>Confirma requisitos migratorios y evita estafas.</span>
+                <span>Confirma <span class="highlight">requisitos migratorios</span> <i class="ph ph-stamp icon-inline"></i> y evita estafas <i class="ph ph-warning-circle icon-inline"></i>.</span>
               </li>
               <li>
                 <i class="ph ph-users-three"></i>
-                <span>Pide referencias de quienes conocen la zona o han viajado antes.</span>
+                <span>Pide <span class="highlight">referencias</span> <i class="ph ph-chat-circle-dots icon-inline"></i> de quienes conocen la zona o han viajado antes.</span>
               </li>
               <li>
                 <i class="ph ph-share-network"></i>
-                <span>Comparte agenda, rutas verificadas en apps y códigos de confirmación.</span>
+                <span>Comparte agenda, <span class="highlight">rutas verificadas</span> <i class="ph ph-path icon-inline"></i> en apps y códigos de confirmación <i class="ph ph-qr-code icon-inline"></i>.</span>
               </li>
               <li>
                 <i class="ph ph-address-book"></i>
-                <span>Entrega contactos y emergencias a tu familia y llévalos escritos.</span>
+                <span>Entrega <span class="highlight">contactos y emergencias</span> <i class="ph ph-phone icon-inline"></i> a tu familia y llévalos escritos <i class="ph ph-note-pencil icon-inline"></i>.</span>
               </li>
             </ul>
           </div>
@@ -576,19 +673,23 @@
           <div class="icon-wrapper"><i class="ph ph-shield-check"></i></div>
           <div class="content">
             <h2>Atención en Ruta</h2>
-            <p>Reconoce zonas de alto riesgo, poca iluminación y cambia de ruta si es necesario.</p>
+            <p>
+              <i class="ph ph-binoculars icon-inline"></i> Reconoce <span class="highlight">zonas de alto riesgo</span> <i class="ph ph-warning-octagon icon-inline"></i>,
+              poca iluminación <i class="ph ph-lightbulb icon-inline"></i> y cambia de ruta si es necesario
+              <span class="badge"><i class="ph ph-arrows-clockwise"></i>Ruta alternativa</span>.
+            </p>
             <ul>
               <li>
                 <i class="ph ph-map-trifold"></i>
-                <span>Conoce alternativas de trayecto y manténte alerta en paradas.</span>
+                <span>Conoce <span class="highlight">alternativas de trayecto</span> <i class="ph ph-fork-knife icon-inline"></i> y manténte alerta <i class="ph ph-eye-open icon-inline"></i> en paradas.</span>
               </li>
               <li>
                 <i class="ph ph-whatsapp-logo"></i>
-                <span>Reporta tu posición a un contacto confiable en puntos clave.</span>
+                <span>Reporta tu <span class="highlight">posición</span> <i class="ph ph-navigation-arrow icon-inline"></i> a un contacto confiable <i class="ph ph-user-check icon-inline"></i> en puntos clave.</span>
               </li>
               <li>
                 <i class="ph ph-lightning"></i>
-                <span>Si notas vigilancia sospechosa, busca espacios iluminados y con gente.</span>
+                <span>Si notas <span class="highlight">vigilancia sospechosa</span> <i class="ph ph-user-focus icon-inline"></i>, busca espacios iluminados <i class="ph ph-sun icon-inline"></i> y con gente <i class="ph ph-users icon-inline"></i>.</span>
               </li>
             </ul>
           </div>
@@ -598,15 +699,18 @@
           <div class="icon-wrapper"><i class="ph ph-hand-fist"></i></div>
           <div class="content">
             <h2>Ante Agresión Física</h2>
-            <p>Prioriza tu integridad.</p>
+            <p>
+              <span class="badge"><i class="ph ph-first-aid"></i>Prioridad máxima</span>
+              <span class="highlight">Protege tu integridad</span> <i class="ph ph-heart-straight icon-inline"></i> sobre todas las cosas.
+            </p>
             <ul>
               <li>
                 <i class="ph ph-arrow-square-out"></i>
-                <span>Aléjate si es posible o intenta calmar a los agresores.</span>
+                <span><span class="highlight">Aléjate</span> <i class="ph ph-running icon-inline"></i> si es posible o intenta <span class="highlight">calmar</span> <i class="ph ph-hand-peace icon-inline"></i> a los agresores.</span>
               </li>
               <li>
                 <i class="ph ph-megaphone"></i>
-                <span>Pide auxilio. Grita “¡Fuego!” y un apellido común para captar atención.</span>
+                <span>Pide <span class="highlight">auxilio</span> <i class="ph ph-siren icon-inline"></i>. Grita <span class="highlight">"¡Fuego!"</span> <i class="ph ph-fire icon-inline"></i> y un apellido común para captar atención <i class="ph ph-ear icon-inline"></i>.</span>
               </li>
             </ul>
           </div>
@@ -616,23 +720,26 @@
           <div class="icon-wrapper"><i class="ph ph-warning"></i></div>
           <div class="content">
             <h2>Respuesta a Asalto</h2>
-            <p>Tu vida es la prioridad. Mantén la calma y evita movimientos bruscos.</p>
+            <p>
+              <span class="badge"><i class="ph ph-heart"></i>Tu vida primero</span>
+              <span class="highlight">Mantén la calma</span> <i class="ph ph-flower-lotus icon-inline"></i> y evita movimientos bruscos <i class="ph ph-prohibit icon-inline"></i>.
+            </p>
             <ul>
               <li>
                 <i class="ph ph-hand-gesture"></i>
-                <span>Muestra tus manos, respira y avisa antes de sacar objetos.</span>
+                <span><span class="highlight">Muestra tus manos</span> <i class="ph ph-hand-palm icon-inline"></i>, respira <i class="ph ph-wind icon-inline"></i> y avisa antes de sacar objetos <i class="ph ph-backpack icon-inline"></i>.</span>
               </li>
               <li>
                 <i class="ph ph-eye"></i>
-                <span>Memoriza detalles útiles: ropa, acento, tatuajes o vehículo.</span>
+                <span><span class="highlight">Memoriza detalles</span> <i class="ph ph-brain icon-inline"></i> útiles: ropa <i class="ph ph-t-shirt icon-inline"></i>, acento, tatuajes o vehículo <i class="ph ph-car icon-inline"></i>.</span>
               </li>
               <li>
                 <i class="ph ph-phone-call"></i>
-                <span>No sigas a los agresores; busca un lugar seguro y comunica tu estado.</span>
+                <span><span class="highlight">No sigas</span> <i class="ph ph-x-circle icon-inline"></i> a los agresores; busca un lugar seguro <i class="ph ph-house icon-inline"></i> y comunica tu estado.</span>
               </li>
               <li>
                 <i class="ph ph-credit-card"></i>
-                <span>Contacta a seguridad pública, supervisor y cancela tarjetas.</span>
+                <span>Contacta a <span class="highlight">seguridad pública</span> <i class="ph ph-police-car icon-inline"></i>, supervisor <i class="ph ph-identification-badge icon-inline"></i> y cancela tarjetas <i class="ph ph-lock-key icon-inline"></i>.</span>
               </li>
             </ul>
           </div>
@@ -642,19 +749,23 @@
           <div class="icon-wrapper"><i class="ph ph-van"></i></div>
           <div class="content">
             <h2>Transporte Local</h2>
-            <p>Elige desplazamientos controlados por la empresa.</p>
+            <p>
+              <i class="ph ph-check-square icon-inline"></i> Elige <span class="highlight">desplazamientos controlados</span>
+              <span class="badge"><i class="ph ph-buildings"></i>Por la empresa</span>
+              en todo momento <i class="ph ph-clock-clockwise icon-inline"></i>.
+            </p>
             <ul>
               <li>
                 <i class="ph ph-bus"></i>
-                <span>Usa transporte oficial y evita compartir tu plan de viaje.</span>
+                <span>Usa <span class="highlight">transporte oficial</span> <i class="ph ph-certificate icon-inline"></i> y evita compartir tu plan de viaje <i class="ph ph-chat-slash icon-inline"></i>.</span>
               </li>
               <li>
                 <i class="ph ph-moon"></i>
-                <span>Reduce salidas nocturnas y asegúrate de llevar calzado cómodo.</span>
+                <span>Reduce <span class="highlight">salidas nocturnas</span> <i class="ph ph-moon-stars icon-inline"></i> y asegúrate de llevar calzado cómodo <i class="ph ph-sneaker icon-inline"></i>.</span>
               </li>
               <li>
                 <i class="ph ph-link-break"></i>
-                <span>No abras enlaces sospechosos que comprometan tu dispositivo.</span>
+                <span><span class="highlight">No abras enlaces sospechosos</span> <i class="ph ph-shield-warning icon-inline"></i> que comprometan tu dispositivo <i class="ph ph-device-mobile icon-inline"></i>.</span>
               </li>
             </ul>
           </div>
@@ -664,23 +775,27 @@
           <div class="icon-wrapper"><i class="ph ph-airplane-takeoff"></i></div>
           <div class="content">
             <h2>Aeropuerto y Frontera</h2>
-            <p>Control total sobre documentos, equipaje y datos personales.</p>
+            <p>
+              <span class="badge"><i class="ph ph-shield-checkered"></i>Control total</span>
+              sobre <span class="highlight">documentos</span> <i class="ph ph-files icon-inline"></i>,
+              equipaje <i class="ph ph-suitcase icon-inline"></i> y datos personales <i class="ph ph-fingerprint icon-inline"></i>.
+            </p>
             <ul>
               <li>
                 <i class="ph ph-identification-card"></i>
-                <span>Documentos listos y asegurados antes de llegar.</span>
+                <span><span class="highlight">Documentos listos</span> <i class="ph ph-check-fat icon-inline"></i> y asegurados <i class="ph ph-lock-simple icon-inline"></i> antes de llegar.</span>
               </li>
               <li>
                 <i class="ph ph-lock"></i>
-                <span>Mantén tu equipaje a la vista y con cierres reforzados.</span>
+                <span>Mantén tu <span class="highlight">equipaje a la vista</span> <i class="ph ph-eye-glasses icon-inline"></i> y con cierres reforzados <i class="ph ph-lock-laminated icon-inline"></i>.</span>
               </li>
               <li>
                 <i class="ph ph-user-rectangle"></i>
-                <span>No compartas información personal ni descargues apps sugeridas.</span>
+                <span><span class="highlight">No compartas información personal</span> <i class="ph ph-user-minus icon-inline"></i> ni descargues apps sugeridas <i class="ph ph-download-simple icon-inline"></i>.</span>
               </li>
               <li>
                 <i class="ph ph-wallet"></i>
-                <span>Transporta solo efectivo esencial; prioriza medios digitales.</span>
+                <span>Transporta solo <span class="highlight">efectivo esencial</span> <i class="ph ph-coins icon-inline"></i>; prioriza medios digitales <i class="ph ph-credit-card icon-inline"></i>.</span>
               </li>
             </ul>
           </div>
@@ -688,9 +803,10 @@
       </div>
 
       <p class="footer-note">
-        Ante cualquier incidente, reporta de inmediato a Seguridad Pública, a tu
-        contacto en destino y a tu supervisor para activar el apoyo de Prevención
-        Franquicias Internacionales.
+        <i class="ph ph-warning-diamond icon-inline"></i> Ante cualquier <span class="highlight">incidente</span>,
+        reporta de inmediato <i class="ph ph-bell-ringing icon-inline"></i> a <span class="highlight">Seguridad Pública</span> <i class="ph ph-shield-star icon-inline"></i>,
+        a tu contacto en destino <i class="ph ph-phone-incoming icon-inline"></i> y a tu <span class="highlight">supervisor</span> <i class="ph ph-user-circle-gear icon-inline"></i>
+        para activar el apoyo de <span class="highlight">Prevención Franquicias Internacionales</span> <i class="ph ph-building-office icon-inline"></i>.
       </p>
     </main>
   </body>
