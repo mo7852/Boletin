@@ -13,6 +13,9 @@
   <!-- Phosphor Icons -->
   <script src="https://unpkg.com/@phosphor-icons/web"></script>
 
+  <!-- Animaciones en scroll -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
+
   <style>
     :root {
       --bg: #ffffff;
@@ -273,6 +276,81 @@
       box-shadow: var(--shadow-card);
     }
 
+    .journey-overview {
+      margin: 2.4rem 0 2.8rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1.1rem;
+    }
+
+    .journey-step {
+      position: relative;
+      border-radius: 1rem;
+      border: 1px solid var(--border-subtle);
+      background: linear-gradient(135deg, #ffffff, #f8f9fa);
+      padding: 1.1rem 1.1rem 1.2rem;
+      display: grid;
+      gap: 0.5rem;
+      overflow: hidden;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+    }
+
+    .journey-step::after {
+      content: attr(data-step);
+      position: absolute;
+      top: 0.85rem;
+      right: 1.1rem;
+      font-size: 0.68rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(90, 90, 90, 0.45);
+    }
+
+    .journey-icon {
+      width: 2.9rem;
+      height: 2.9rem;
+      border-radius: 0.85rem;
+      border: 1px solid var(--border-subtle);
+      background: var(--bg-soft);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .journey-icon i {
+      font-size: 1.7rem;
+      color: var(--accent-red);
+    }
+
+    .journey-title {
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: var(--text-main);
+    }
+
+    .journey-detail {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      line-height: 1.35;
+    }
+
+    .journey-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+    }
+
+    .journey-tag {
+      padding: 0.2rem 0.6rem;
+      border-radius: var(--radius-full);
+      background: var(--bg-soft);
+      border: 1px solid var(--border-subtle);
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--text-muted);
+    }
+
     .quick-card-header {
       display: flex;
       justify-content: space-between;
@@ -500,39 +578,47 @@
     }
 
     .card-body {
-      font-size: 0.86rem;
+      display: grid;
+      gap: 0.6rem;
+      font-size: 0.85rem;
       color: var(--text-muted);
-      display: flex;
-      flex-direction: column;
-      gap: 0.35rem;
     }
 
-    .card-body strong {
+    .card-tips {
+      display: grid;
+      gap: 0.45rem;
+    }
+
+    .card-tip {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.55rem 0.65rem;
+      border-radius: 0.85rem;
+      background: #ffffff;
+      border: 1px solid var(--border-subtle);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+      font-weight: 500;
       color: var(--text-main);
-      font-weight: 600;
     }
 
-    .card-body ul {
-      list-style: none;
+    .card-tip i {
+      font-size: 1.25rem;
+      color: var(--accent-red);
+      flex-shrink: 0;
+    }
+
+    .card-tip span {
       display: flex;
       flex-direction: column;
-      gap: 0.35rem;
-      padding-left: 0;
+      gap: 0.1rem;
     }
 
-    .card-body li {
-      display: flex;
-      align-items: flex-start;
-      gap: 0.3rem;
-    }
-
-    .card-bullet {
-      width: 5px;
-      height: 5px;
-      border-radius: 999px;
-      background: var(--accent-red);
-      margin-top: 0.45rem;
-      flex-shrink: 0;
+    .card-tip small {
+      font-size: 0.68rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-muted);
     }
 
     .footer-note {
@@ -572,6 +658,15 @@
 
       .hero-main {
         padding: 1.5rem 1.4rem 1.4rem;
+      }
+
+      .journey-overview {
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+        gap: 0.85rem;
+      }
+
+      .card-tip {
+        align-items: flex-start;
       }
 
       .section {
@@ -616,9 +711,8 @@
           </h1>
 
           <p class="hero-sub">
-            Guía rápida para cuidar tu seguridad en desplazamientos,
-            especialmente en horas nocturnas. El objetivo es mantener
-            una actitud activa, atenta y preventiva.
+            Checklist visual para resguardar tus traslados nocturnos.
+            Mantén la alerta, comparte tu ruta y coordina apoyos en cada etapa.
           </p>
 
           <div class="hero-meta">
@@ -655,15 +749,15 @@
           <ul class="quick-list">
             <li>
               <i class="ph ph-warning-circle"></i>
-              <span><span class="quick-emphasis">Tu vida vale más</span> que cualquier objeto: teléfono, billetera o equipaje.</span>
+              <span><span class="quick-emphasis">Vida primero:</span> entrega objetos sin dudar.</span>
             </li>
             <li>
               <i class="ph ph-wave-sine"></i>
-              <span>Respira profundo, mantén las manos visibles y evita movimientos bruscos.</span>
+              <span>Respira, manos visibles y mirada atenta.</span>
             </li>
             <li>
               <i class="ph ph-megaphone-simple"></i>
-              <span>Cuando necesites ayuda, grita con claridad y busca un lugar seguro iluminado.</span>
+              <span>Pide ayuda en voz firme y busca luz.</span>
             </li>
           </ul>
           <div class="nav-pills">
@@ -692,25 +786,74 @@
           <ul class="quick-list">
             <li>
               <i class="ph ph-identification-card"></i>
-              Documentos, tarjetas y números de emergencia anotados en papel.
+              Documentos y tarjetas listos con respaldo en papel.
             </li>
             <li>
               <i class="ph ph-map-pin-line"></i>
-              Ruta revisada en aplicaciones confiables y compartida con alguien de confianza.
+              Ruta confirmada en apps seguras y compartida en tiempo real.
             </li>
             <li>
               <i class="ph ph-users-three"></i>
-              Contactos en destino informados de tu llegada y horarios.
+              Contactos avisados de horarios y palabra clave de seguridad.
             </li>
           </ul>
         </div>
       </aside>
     </section>
 
+    <section class="journey-overview" aria-label="Mapa visual de viaje">
+      <div class="journey-step" data-step="1" data-aos="fade-up" data-aos-delay="0">
+        <div class="journey-icon">
+          <i class="ph ph-calendar-check"></i>
+        </div>
+        <div class="journey-title">Prepara y comparte</div>
+        <div class="journey-detail">Organiza agenda, revisa requisitos y avisa a tu red de apoyo.</div>
+        <div class="journey-tags">
+          <span class="journey-tag">Ruta</span>
+          <span class="journey-tag">Documentos</span>
+          <span class="journey-tag">Contacto</span>
+        </div>
+      </div>
+      <div class="journey-step" data-step="2" data-aos="fade-up" data-aos-delay="80">
+        <div class="journey-icon">
+          <i class="ph ph-car-profile"></i>
+        </div>
+        <div class="journey-title">Traslado seguro</div>
+        <div class="journey-detail">Elige transporte confiable, evita rutas oscuras y monitorea el camino.</div>
+        <div class="journey-tags">
+          <span class="journey-tag">GPS</span>
+          <span class="journey-tag">Verificación</span>
+          <span class="journey-tag">Puntos seguros</span>
+        </div>
+      </div>
+      <div class="journey-step" data-step="3" data-aos="fade-up" data-aos-delay="160">
+        <div class="journey-icon">
+          <i class="ph ph-buildings"></i>
+        </div>
+        <div class="journey-title">Estancia protegida</div>
+        <div class="journey-detail">Coordina accesos, resguarda pertenencias y mantén comunicación constante.</div>
+        <div class="journey-tags">
+          <span class="journey-tag">Recepción</span>
+          <span class="journey-tag">Custodia</span>
+        </div>
+      </div>
+      <div class="journey-step" data-step="4" data-aos="fade-up" data-aos-delay="240">
+        <div class="journey-icon">
+          <i class="ph ph-house-line"></i>
+        </div>
+        <div class="journey-title">Retorno inteligente</div>
+        <div class="journey-detail">Repite las alertas, confirma llegada y registra novedades con tu equipo.</div>
+        <div class="journey-tags">
+          <span class="journey-tag">Comunicación</span>
+          <span class="journey-tag">Reporte</span>
+        </div>
+      </div>
+    </section>
+
     <!-- SECCIONES -->
     <div class="sections">
       <!-- 1. Medidas preventivas -->
-      <section id="prevencion" class="section">
+      <section id="prevencion" class="section" data-aos="fade-up">
         <div class="section-header">
           <div>
             <div class="section-label">1 · Medidas preventivas</div>
@@ -734,20 +877,29 @@
             </div>
             <h3 class="card-title">Conoce tu ruta y entorno</h3>
             <div class="card-body">
-              <ul>
-                <li>
-                  <span class="card-bullet"></span>
-                  <span>Identifica zonas de alto riesgo y con poca iluminación; evita atajos solitarios.</span>
-                </li>
-                <li>
-                  <span class="card-bullet"></span>
-                  <span>Consulta la ruta en aplicaciones confiables antes de salir y revisa tiempos aproximados.</span>
-                </li>
-                <li>
-                  <span class="card-bullet"></span>
-                  <span>Verifica <strong>requisitos migratorios</strong> oficiales del país destino para evitar estafas.</span>
-                </li>
-              </ul>
+              <div class="card-tips">
+                <div class="card-tip">
+                  <i class="ph ph-map-pin"></i>
+                  <span>
+                    Prioriza calles iluminadas
+                    <small>Marca y evita focos rojos</small>
+                  </span>
+                </div>
+                <div class="card-tip">
+                  <i class="ph ph-compass"></i>
+                  <span>
+                    Ruta validada en apps seguras
+                    <small>Actualiza ETA antes de salir</small>
+                  </span>
+                </div>
+                <div class="card-tip">
+                  <i class="ph ph-identification-card"></i>
+                  <span>
+                    Documentación oficial revisada
+                    <small>Consulta fuentes gubernamentales</small>
+                  </span>
+                </div>
+              </div>
             </div>
           </article>
 
@@ -760,20 +912,29 @@
             </div>
             <h3 class="card-title">Evita sorpresas en el viaje</h3>
             <div class="card-body">
-              <ul>
-                <li>
-                  <span class="card-bullet"></span>
-                  <span>Pide referencias a personas que ya han viajado o conocen el lugar de destino.</span>
-                </li>
-                <li>
-                  <span class="card-bullet"></span>
-                  <span>Comparte tu <strong>agenda y horarios</strong> con tu contacto en destino.</span>
-                </li>
-                <li>
-                  <span class="card-bullet"></span>
-                  <span>Deja a tu familia números de emergencia y utiliza <strong>códigos de confirmación</strong> acordados.</span>
-                </li>
-              </ul>
+              <div class="card-tips">
+                <div class="card-tip">
+                  <i class="ph ph-users-three"></i>
+                  <span>
+                    Consulta a quienes conocen la zona
+                    <small>Identifica horarios y puntos seguros</small>
+                  </span>
+                </div>
+                <div class="card-tip">
+                  <i class="ph ph-clock"></i>
+                  <span>
+                    Agenda compartida con tu enlace
+                    <small>Envía llegada y salida previstas</small>
+                  </span>
+                </div>
+                <div class="card-tip">
+                  <i class="ph ph-key"></i>
+                  <span>
+                    Clave de confirmación familiar
+                    <small>Define palabra para indicar que estás bien</small>
+                  </span>
+                </div>
+              </div>
             </div>
           </article>
 
@@ -786,23 +947,29 @@
             </div>
             <h3 class="card-title">Ten siempre un plan B</h3>
             <div class="card-body">
-              <ul>
-                <li>
-                  <span class="card-bullet"></span>
-                  <span>Anota en una libreta o tarjeta tus contactos clave: seguridad pública, empresa, hotel y familiares.</span>
-                </li>
-                <li>
-                  <span class="card-bullet"></span>
-                  <span>Piensa que tu celular puede descargarse, extraviarse o dañarse; el papel es tu respaldo.</span>
-                </li>
-              </ul>
+              <div class="card-tips">
+                <div class="card-tip">
+                  <i class="ph ph-notebook"></i>
+                  <span>
+                    Tarjeta con contactos clave
+                    <small>Seguridad, empresa, hotel y familia</small>
+                  </span>
+                </div>
+                <div class="card-tip">
+                  <i class="ph ph-warning-circle"></i>
+                  <span>
+                    Plan B sin celular
+                    <small>Papel como respaldo de emergencia</small>
+                  </span>
+                </div>
+              </div>
             </div>
           </article>
         </div>
       </section>
 
       <!-- 2. Medidas ante agresión física -->
-      <section id="agresion" class="section">
+      <section id="agresion" class="section" data-aos="fade-up" data-aos-delay="80">
         <div class="section-header">
           <div>
             <div class="section-label">2 · Medidas ante agresión física</div>
@@ -826,16 +993,22 @@
             </div>
             <h3 class="card-title">Aléjate si es posible</h3>
             <div class="card-body">
-              <ul>
-                <li>
-                  <span class="card-bullet"></span>
-                  <span>Si puedes, <strong>retírate</strong> del lugar sin provocar a los agresores.</span>
-                </li>
-                <li>
-                  <span class="card-bullet"></span>
-                  <span>Si no es posible irte, intenta mantener la calma y hablar en tono bajo.</span>
-                </li>
-              </ul>
+              <div class="card-tips">
+                <div class="card-tip">
+                  <i class="ph ph-arrow-square-out"></i>
+                  <span>
+                    Retírate sin confrontar
+                    <small>Solo si ves una salida segura</small>
+                  </span>
+                </div>
+                <div class="card-tip">
+                  <i class="ph ph-wave-sine"></i>
+                  <span>
+                    Mantén voz baja y firme
+                    <small>Calma al hablar desactiva tensión</small>
+                  </span>
+                </div>
+              </div>
             </div>
           </article>
 
@@ -848,23 +1021,29 @@
             </div>
             <h3 class="card-title">Pedir ayuda de forma efectiva</h3>
             <div class="card-body">
-              <ul>
-                <li>
-                  <span class="card-bullet"></span>
-                  <span>Pide auxilio en voz alta, aunque algunas personas se alejen por miedo.</span>
-                </li>
-                <li>
-                  <span class="card-bullet"></span>
-                  <span>Al gritar, puedes usar palabras que llamen la atención como <strong>“¡Fuego!”</strong> y un apellido común del país.</span>
-                </li>
-              </ul>
+              <div class="card-tips">
+                <div class="card-tip">
+                  <i class="ph ph-megaphone"></i>
+                  <span>
+                    Pide auxilio en voz clara
+                    <small>Busca miradas y luces cercanas</small>
+                  </span>
+                </div>
+                <div class="card-tip">
+                  <i class="ph ph-warning"></i>
+                  <span>
+                    Usa palabras detonadoras
+                    <small>“Fuego” + apellido facilita reacción</small>
+                  </span>
+                </div>
+              </div>
             </div>
           </article>
         </div>
       </section>
 
       <!-- 3. Medidas reactivas (asalto / robo) -->
-      <section id="asalto" class="section">
+      <section id="asalto" class="section" data-aos="fade-up" data-aos-delay="140">
         <div class="section-header">
           <div>
             <div class="section-label">3 · Medidas reactivas</div>
@@ -888,20 +1067,29 @@
             </div>
             <h3 class="card-title">Controla tu reacción</h3>
             <div class="card-body">
-              <ul>
-                <li>
-                  <span class="card-bullet"></span>
-                  <span>Ten claro que <strong>tu vida</strong> es lo más importante. No arriesgues por tus pertenencias.</span>
-                </li>
-                <li>
-                  <span class="card-bullet"></span>
-                  <span>Mantén la calma, respira profundo y muestra tus manos en todo momento.</span>
-                </li>
-                <li>
-                  <span class="card-bullet"></span>
-                  <span>Evita el contacto visual directo, pero no discutas ni desafíes a los agresores.</span>
-                </li>
-              </ul>
+              <div class="card-tips">
+                <div class="card-tip">
+                  <i class="ph ph-heartbeat"></i>
+                  <span>
+                    Prioriza tu vida sobre objetos
+                    <small>Entrega todo sin resistirte</small>
+                  </span>
+                </div>
+                <div class="card-tip">
+                  <i class="ph ph-hand-palm"></i>
+                  <span>
+                    Respira y manos visibles
+                    <small>Movimientos lentos y anunciados</small>
+                  </span>
+                </div>
+                <div class="card-tip">
+                  <i class="ph ph-eye-slash"></i>
+                  <span>
+                    Sin miradas desafiantes
+                    <small>Evita discutir o responder insultos</small>
+                  </span>
+                </div>
+              </div>
             </div>
           </article>
 
@@ -914,16 +1102,22 @@
             </div>
             <h3 class="card-title">Entrega de pertenencias</h3>
             <div class="card-body">
-              <ul>
-                <li>
-                  <span class="card-bullet"></span>
-                  <span>Antes de sacar algo de tu bolso o billetera, <strong>avísalo</strong> con calma.</span>
-                </li>
-                <li>
-                  <span class="card-bullet"></span>
-                  <span>No hagas movimientos bruscos; sigue exactamente las indicaciones que te den.</span>
-                </li>
-              </ul>
+              <div class="card-tips">
+                <div class="card-tip">
+                  <i class="ph ph-wallet"></i>
+                  <span>
+                    Anuncia cada movimiento
+                    <small>“Voy a sacar la billetera”</small>
+                  </span>
+                </div>
+                <div class="card-tip">
+                  <i class="ph ph-hand-palm"></i>
+                  <span>
+                    Entrega lento y sin brusquedad
+                    <small>Sigue instrucciones al pie de la letra</small>
+                  </span>
+                </div>
+              </div>
             </div>
           </article>
 
@@ -936,16 +1130,22 @@
             </div>
             <h3 class="card-title">Memoriza detalles clave</h3>
             <div class="card-body">
-              <ul>
-                <li>
-                  <span class="card-bullet"></span>
-                  <span>Intenta recordar cómo visten, acento, tatuajes u otras señas particulares.</span>
-                </li>
-                <li>
-                  <span class="card-bullet"></span>
-                  <span>Si hay vehículo, memoriza el tipo, color y, si es posible, parte de la placa.</span>
-                </li>
-              </ul>
+              <div class="card-tips">
+                <div class="card-tip">
+                  <i class="ph ph-identification-badge"></i>
+                  <span>
+                    Observa rasgos distintivos
+                    <small>Vestimenta, tatuajes, acento</small>
+                  </span>
+                </div>
+                <div class="card-tip">
+                  <i class="ph ph-car-profile"></i>
+                  <span>
+                    Retén datos del vehículo
+                    <small>Modelo, color y fragmento de placa</small>
+                  </span>
+                </div>
+              </div>
             </div>
           </article>
 
@@ -958,27 +1158,36 @@
             </div>
             <h3 class="card-title">Qué hacer cuando se van</h3>
             <div class="card-body">
-              <ul>
-                <li>
-                  <span class="card-bullet"></span>
-                  <span>No intentes seguirlos. Busca de inmediato un lugar seguro e iluminado.</span>
-                </li>
-                <li>
-                  <span class="card-bullet"></span>
-                  <span>Comunícate con seguridad pública, tu familia y tu supervisor para informar tu estado y recibir apoyo.</span>
-                </li>
-                <li>
-                  <span class="card-bullet"></span>
-                  <span>Cancela cuanto antes tus <strong>tarjetas de crédito, débito</strong> y otros medios de pago.</span>
-                </li>
-              </ul>
+              <div class="card-tips">
+                <div class="card-tip">
+                  <i class="ph ph-shield-check"></i>
+                  <span>
+                    Busca refugio iluminado
+                    <small>No sigas a los agresores</small>
+                  </span>
+                </div>
+                <div class="card-tip">
+                  <i class="ph ph-phone-call"></i>
+                  <span>
+                    Activa a seguridad y familia
+                    <small>Informa ubicación y estado</small>
+                  </span>
+                </div>
+                <div class="card-tip">
+                  <i class="ph ph-credit-card"></i>
+                  <span>
+                    Bloquea medios de pago
+                    <small>Cancela tarjetas y apps financieras</small>
+                  </span>
+                </div>
+              </div>
             </div>
           </article>
         </div>
       </section>
 
       <!-- 4. Transporte local -->
-      <section id="transporte" class="section">
+      <section id="transporte" class="section" data-aos="fade-up" data-aos-delay="200">
         <div class="section-header">
           <div>
             <div class="section-label">4 · Transporte local</div>
@@ -1002,20 +1211,29 @@
             </div>
             <h3 class="card-title">Elige cómo moverte</h3>
             <div class="card-body">
-              <ul>
-                <li>
-                  <span class="card-bullet"></span>
-                  <span>Utiliza únicamente el <strong>transporte oficial</strong> asignado por la empresa.</span>
-                </li>
-                <li>
-                  <span class="card-bullet"></span>
-                  <span>Evita salir o desplazarte en horas nocturnas si no es estrictamente necesario.</span>
-                </li>
-                <li>
-                  <span class="card-bullet"></span>
-                  <span>Usa zapatos cómodos que te permitan moverte rápido en caso de emergencia.</span>
-                </li>
-              </ul>
+              <div class="card-tips">
+                <div class="card-tip">
+                  <i class="ph ph-car-profile"></i>
+                  <span>
+                    Transporte oficial autorizado
+                    <small>Coordina solo con proveedores registrados</small>
+                  </span>
+                </div>
+                <div class="card-tip">
+                  <i class="ph ph-moon-stars"></i>
+                  <span>
+                    Reagenda traslados nocturnos
+                    <small>Prefiere horarios con flujo de personas</small>
+                  </span>
+                </div>
+                <div class="card-tip">
+                  <i class="ph ph-backpack"></i>
+                  <span>
+                    Equipo ligero y cómodo
+                    <small>Calzado estable para moverte rápido</small>
+                  </span>
+                </div>
+              </div>
             </div>
           </article>
 
@@ -1028,23 +1246,29 @@
             </div>
             <h3 class="card-title">Cuida tu información</h3>
             <div class="card-body">
-              <ul>
-                <li>
-                  <span class="card-bullet"></span>
-                  <span>No compartas con extraños datos como duración de tu estadía, hotel o itinerario.</span>
-                </li>
-                <li>
-                  <span class="card-bullet"></span>
-                  <span>No abras <strong>links</strong> desconocidos; algunos pueden dar acceso a tu celular y contactos.</span>
-                </li>
-              </ul>
+              <div class="card-tips">
+                <div class="card-tip">
+                  <i class="ph ph-lock"></i>
+                  <span>
+                    Reserva datos sensibles
+                    <small>Itinerario solo con personal autorizado</small>
+                  </span>
+                </div>
+                <div class="card-tip">
+                  <i class="ph ph-link-simple-break"></i>
+                  <span>
+                    Evita enlaces sospechosos
+                    <small>Protege tu teléfono y contactos</small>
+                  </span>
+                </div>
+              </div>
             </div>
           </article>
         </div>
       </section>
 
       <!-- 5. Aeropuerto / frontera -->
-      <section id="aeropuerto" class="section">
+      <section id="aeropuerto" class="section" data-aos="fade-up" data-aos-delay="260">
         <div class="section-header">
           <div>
             <div class="section-label">5 · Aeropuerto y frontera</div>
@@ -1068,16 +1292,22 @@
             </div>
             <h3 class="card-title">Ten todo preparado</h3>
             <div class="card-body">
-              <ul>
-                <li>
-                  <span class="card-bullet"></span>
-                  <span>Lleva tus documentos listos, bien guardados y siempre bajo tu control.</span>
-                </li>
-                <li>
-                  <span class="card-bullet"></span>
-                  <span>Asegura tu equipaje, ciérralo correctamente y mantenlo siempre a la vista.</span>
-                </li>
-              </ul>
+              <div class="card-tips">
+                <div class="card-tip">
+                  <i class="ph ph-identification-card"></i>
+                  <span>
+                    Documentos a mano y duplicados
+                    <small>Resguárdalos en portadocumentos seguro</small>
+                  </span>
+                </div>
+                <div class="card-tip">
+                  <i class="ph ph-suitcase"></i>
+                  <span>
+                    Equipaje sellado y vigilado
+                    <small>Candados visibles y control permanente</small>
+                  </span>
+                </div>
+              </div>
             </div>
           </article>
 
@@ -1090,20 +1320,29 @@
             </div>
             <h3 class="card-title">Relación con terceros</h3>
             <div class="card-body">
-              <ul>
-                <li>
-                  <span class="card-bullet"></span>
-                  <span>No brindes información personal a extraños ni aceptes ayuda para “agilizar” trámites.</span>
-                </li>
-                <li>
-                  <span class="card-bullet"></span>
-                  <span>No descargues aplicaciones recomendadas por personas que no conoces.</span>
-                </li>
-                <li>
-                  <span class="card-bullet"></span>
-                  <span>Evita cargar sumas grandes de dinero en efectivo; prefiere medios de pago seguros.</span>
-                </li>
-              </ul>
+              <div class="card-tips">
+                <div class="card-tip">
+                  <i class="ph ph-user-circle"></i>
+                  <span>
+                    No compartas datos personales
+                    <small>Trámites solo con personal identificado</small>
+                  </span>
+                </div>
+                <div class="card-tip">
+                  <i class="ph ph-device-mobile-camera"></i>
+                  <span>
+                    Rechaza apps sugeridas al paso
+                    <small>Instala solo desde tiendas oficiales</small>
+                  </span>
+                </div>
+                <div class="card-tip">
+                  <i class="ph ph-wallet"></i>
+                  <span>
+                    Lleva efectivo mínimo
+                    <small>Prioriza tarjetas y billeteras digitales</small>
+                  </span>
+                </div>
+              </div>
             </div>
           </article>
         </div>
@@ -1118,6 +1357,8 @@
     </p>
   </main>
 
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+
   <script>
     // Navegación suave a secciones
     document.addEventListener("DOMContentLoaded", function () {
@@ -1130,6 +1371,15 @@
           }
         });
       });
+
+      if (window.AOS) {
+        AOS.init({
+          duration: 700,
+          once: true,
+          offset: 120,
+          easing: "ease-out-quad",
+        });
+      }
     });
   </script>
 </body>
