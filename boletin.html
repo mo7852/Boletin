@@ -1,0 +1,1133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Recomendaciones de Seguridad – Empresa Segura y Saludable</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Fuente -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Phosphor Icons -->
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+  <style>
+    :root {
+      --bg: #050505;
+      --bg-elevated: #101010;
+      --bg-soft: #151515;
+      --border-subtle: #2b2b2b;
+      --text-main: #f5f5f5;
+      --text-muted: #a1a1a1;
+      --accent-red: #e53935;
+      --chip-bg: #171717;
+      --chip-border: #2e2e2e;
+      --shadow-soft: 0 18px 45px rgba(0, 0, 0, 0.65);
+      --radius-lg: 1.4rem;
+      --radius-full: 999px;
+      --transition-fast: 180ms ease-out;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background:
+        radial-gradient(circle at top left, #1b1b1b 0, #050505 45%, #000 100%);
+      color: var(--text-main);
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(16px);
+      background: rgba(5, 5, 5, 0.9);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+    }
+
+    .shell {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 1rem 1.5rem;
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      min-width: 0;
+    }
+
+    .brand-logo {
+      padding: 0.3rem 0.6rem;
+      border-radius: 0.9rem;
+      background: linear-gradient(135deg, #111, #222);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    }
+
+    .brand-logo img {
+      height: 40px;
+      width: auto;
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+      gap: 0.12rem;
+      min-width: 0;
+    }
+
+    .brand-title {
+      font-size: 0.82rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    .brand-subtitle {
+      font-size: 0.92rem;
+      color: #f0f0f0;
+      font-weight: 500;
+      white-space: nowrap;
+    }
+
+    .header-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.45rem 0.9rem;
+      border-radius: var(--radius-full);
+      background: rgba(21, 21, 21, 0.9);
+      border: 1px solid rgba(229, 57, 53, 0.45);
+      font-size: 0.78rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    .header-pill-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: var(--accent-red);
+      box-shadow: 0 0 0 4px rgba(229, 57, 53, 0.18);
+    }
+
+    main {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem 3.5rem;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 2.1fr) minmax(0, 1.6fr);
+      gap: 2rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .hero-main {
+      background: radial-gradient(circle at top left, #202020 0, #121212 55%, #0a0a0a 100%);
+      border-radius: var(--radius-lg);
+      padding: 1.9rem 1.9rem 1.8rem;
+      border: 1px solid rgba(255, 255, 255, 0.03);
+      box-shadow: var(--shadow-soft);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-main::before {
+      content: "";
+      position: absolute;
+      inset: -20%;
+      background:
+        radial-gradient(circle at top right, rgba(229, 57, 53, 0.08), transparent 60%),
+        radial-gradient(circle at bottom, rgba(255, 255, 255, 0.02), transparent 55%);
+      opacity: 0.9;
+      pointer-events: none;
+    }
+
+    .hero-main-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.3rem 0.8rem;
+      border-radius: var(--radius-full);
+      border: 1px solid var(--border-subtle);
+      background: rgba(5, 5, 5, 0.3);
+      font-size: 0.76rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--text-muted);
+      margin-bottom: 0.9rem;
+    }
+
+    .hero-kicker i {
+      font-size: 1.05rem;
+      color: var(--accent-red);
+    }
+
+    .hero-title {
+      font-size: clamp(1.9rem, 3vw, 2.4rem);
+      line-height: 1.2;
+      margin-bottom: 0.7rem;
+      letter-spacing: 0.02em;
+    }
+
+    .hero-title span {
+      color: var(--accent-red);
+    }
+
+    .hero-sub {
+      font-size: 0.98rem;
+      color: var(--text-muted);
+      max-width: 32rem;
+      margin-bottom: 1.45rem;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-bottom: 0.7rem;
+    }
+
+    .hero-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.4rem 0.8rem;
+      border-radius: var(--radius-full);
+      background: rgba(0, 0, 0, 0.4);
+      border: 1px solid var(--border-subtle);
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    .hero-chip i {
+      font-size: 1rem;
+      color: #dddddd;
+    }
+
+    .hero-note {
+      margin-top: 0.6rem;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      opacity: 0.9;
+    }
+
+    .hero-note-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 999px;
+      background: var(--accent-red);
+    }
+
+    .hero-side {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+
+    .quick-card {
+      background: linear-gradient(145deg, #111111, #0a0a0a);
+      border-radius: var(--radius-lg);
+      padding: 1.15rem 1.2rem 1.25rem;
+      border: 1px solid rgba(255, 255, 255, 0.03);
+    }
+
+    .quick-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.7rem;
+      gap: 0.7rem;
+    }
+
+    .quick-card-title {
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #e5e5e5;
+    }
+
+    .quick-card-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.25rem 0.6rem;
+      border-radius: var(--radius-full);
+      border: 1px solid rgba(229, 57, 53, 0.55);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: rgba(255, 255, 255, 0.9);
+      background: rgba(229, 57, 53, 0.08);
+    }
+
+    .quick-card-badge i {
+      font-size: 0.98rem;
+      color: var(--accent-red);
+    }
+
+    .quick-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.45rem;
+      font-size: 0.86rem;
+      color: var(--text-muted);
+    }
+
+    .quick-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.4rem;
+    }
+
+    .quick-list i {
+      font-size: 1rem;
+      margin-top: 0.1rem;
+      color: #e0e0e0;
+    }
+
+    .quick-emphasis {
+      font-weight: 500;
+      color: #fdfdfd;
+    }
+
+    .nav-pills {
+      margin-top: 0.4rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .nav-pill {
+      border-radius: var(--radius-full);
+      border: 1px solid var(--chip-border);
+      background: var(--chip-bg);
+      padding: 0.4rem 0.8rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: background var(--transition-fast), border-color var(--transition-fast), transform var(--transition-fast);
+    }
+
+    .nav-pill i {
+      font-size: 0.95rem;
+      color: #dcdcdc;
+    }
+
+    .nav-pill:hover {
+      border-color: rgba(229, 57, 53, 0.55);
+      transform: translateY(-1px);
+    }
+
+    .nav-pill--primary {
+      border-color: rgba(229, 57, 53, 0.7);
+      background: linear-gradient(135deg, #181818, #111111);
+      color: #f8f8f8;
+    }
+
+    .sections {
+      display: flex;
+      flex-direction: column;
+      gap: 2.1rem;
+    }
+
+    .section {
+      background: rgba(10, 10, 10, 0.9);
+      border-radius: var(--radius-lg);
+      padding: 1.6rem 1.5rem 1.7rem;
+      border: 1px solid rgba(255, 255, 255, 0.04);
+      box-shadow: 0 12px 36px rgba(0, 0, 0, 0.65);
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 1rem;
+      margin-bottom: 1.3rem;
+    }
+
+    .section-label {
+      font-size: 0.78rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    .section-title {
+      font-size: 1.12rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .section-title i {
+      font-size: 1.4rem;
+      color: #f0f0f0;
+    }
+
+    .section-tag {
+      font-size: 0.75rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      opacity: 0.9;
+    }
+
+    .section-tag span {
+      color: var(--accent-red);
+    }
+
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.2rem;
+    }
+
+    .card {
+      background: var(--bg-soft);
+      border-radius: 1.05rem;
+      padding: 1.05rem 1rem 1.15rem;
+      border: 1px solid rgba(255, 255, 255, 0.04);
+      position: relative;
+      overflow: hidden;
+      transition: border-color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top right, rgba(255, 255, 255, 0.04), transparent 60%);
+      opacity: 0;
+      transition: opacity var(--transition-fast);
+      pointer-events: none;
+    }
+
+    .card:hover {
+      transform: translateY(-2px);
+      border-color: rgba(229, 57, 53, 0.5);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.7);
+    }
+
+    .card:hover::before {
+      opacity: 1;
+    }
+
+    .card-icon-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 0.7rem;
+      gap: 0.6rem;
+    }
+
+    .card-icon {
+      width: 2.1rem;
+      height: 2.1rem;
+      border-radius: 0.75rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: radial-gradient(circle at top left, #2c2c2c, #141414);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .card-icon i {
+      font-size: 1.25rem;
+      color: #f4f4f4;
+    }
+
+    .card-label {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--text-muted);
+    }
+
+    .card-title {
+      font-size: 0.98rem;
+      font-weight: 600;
+      margin-bottom: 0.45rem;
+    }
+
+    .card-body {
+      font-size: 0.86rem;
+      color: var(--text-muted);
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+
+    .card-body strong {
+      color: #f6f6f6;
+      font-weight: 500;
+    }
+
+    .card-body ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+      padding-left: 0;
+    }
+
+    .card-body li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.3rem;
+    }
+
+    .card-bullet {
+      width: 5px;
+      height: 5px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.55);
+      margin-top: 0.45rem;
+      flex-shrink: 0;
+    }
+
+    .footer-note {
+      margin-top: 2.3rem;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      text-align: left;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      align-items: center;
+    }
+
+    .footer-note i {
+      color: var(--accent-red);
+      font-size: 1rem;
+    }
+
+    @media (max-width: 860px) {
+      .hero {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    @media (max-width: 640px) {
+      .shell {
+        padding-inline: 1.1rem;
+      }
+
+      main {
+        padding-inline: 1.1rem;
+      }
+
+      .brand-subtitle {
+        font-size: 0.84rem;
+      }
+
+      .hero-main {
+        padding: 1.5rem 1.4rem 1.4rem;
+      }
+
+      .section {
+        padding: 1.3rem 1.1rem 1.4rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="shell header-inner">
+      <div class="brand">
+        <div class="brand-logo">
+          <img src="https://pruebas.franqui.club/ess.png" alt="Logo Empresa Segura y Saludable">
+        </div>
+        <div class="brand-text">
+          <div class="brand-title">Empresa Segura y Saludable</div>
+          <div class="brand-subtitle">Prevención Franquicias Internacionales</div>
+        </div>
+      </div>
+
+      <div class="header-pill">
+        <span class="header-pill-dot"></span>
+        <span>Alerta nocturna</span>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-main">
+        <div class="hero-main-inner">
+          <div class="hero-kicker">
+            <i class="ph ph-shield-check"></i>
+            Recomendaciones de viajero
+          </div>
+
+          <h1 class="hero-title">
+            Seguridad en tu trayecto
+            <span>casa &mdash; trabajo &mdash; casa</span>
+          </h1>
+
+          <p class="hero-sub">
+            Guía rápida para cuidar tu seguridad en desplazamientos,
+            especialmente en horas nocturnas. El objetivo es mantener
+            una actitud activa, atenta y preventiva.
+          </p>
+
+          <div class="hero-meta">
+            <div class="hero-chip">
+              <i class="ph ph-moon-stars"></i>
+              Horarios nocturnos
+            </div>
+            <div class="hero-chip">
+              <i class="ph ph-map-trifold"></i>
+              Ruta casa &ndash; trabajo &ndash; hotel
+            </div>
+            <div class="hero-chip">
+              <i class="ph ph-globe-hemisphere-west"></i>
+              Franquicias internacionales
+            </div>
+          </div>
+
+          <p class="hero-note">
+            <span class="hero-note-dot"></span>
+            La mejor medida de seguridad es anticiparte al riesgo y pedir apoyo a tiempo.
+          </p>
+        </div>
+      </div>
+
+      <aside class="hero-side">
+        <div class="quick-card">
+          <div class="quick-card-header">
+            <div class="quick-card-title">Regla principal</div>
+            <div class="quick-card-badge">
+              <i class="ph ph-heartbeat"></i>
+              Vida primero
+            </div>
+          </div>
+          <ul class="quick-list">
+            <li>
+              <i class="ph ph-warning-circle"></i>
+              <span><span class="quick-emphasis">Tu vida vale más</span> que cualquier objeto: teléfono, billetera o equipaje.</span>
+            </li>
+            <li>
+              <i class="ph ph-wave-sine"></i>
+              <span>Respira profundo, mantén las manos visibles y evita movimientos bruscos.</span>
+            </li>
+            <li>
+              <i class="ph ph-megaphone-simple"></i>
+              <span>Cuando necesites ayuda, grita con claridad y busca un lugar seguro iluminado.</span>
+            </li>
+          </ul>
+          <div class="nav-pills">
+            <button class="nav-pill nav-pill--primary" data-scroll-to="prevencion">
+              <i class="ph ph-compass-tool"></i>
+              Antes de salir
+            </button>
+            <button class="nav-pill" data-scroll-to="asalto">
+              <i class="ph ph-shield-warning"></i>
+              Durante un asalto
+            </button>
+            <button class="nav-pill" data-scroll-to="transporte">
+              <i class="ph ph-bus"></i>
+              Transporte y viaje
+            </button>
+          </div>
+        </div>
+
+        <div class="quick-card">
+          <div class="quick-card-header">
+            <div class="quick-card-title">Checklist exprés</div>
+            <span class="section-tag">
+              <span>&bull;</span> Revisa antes de salir
+            </span>
+          </div>
+          <ul class="quick-list">
+            <li>
+              <i class="ph ph-identification-card"></i>
+              Documentos, tarjetas y números de emergencia anotados en papel.
+            </li>
+            <li>
+              <i class="ph ph-map-pin-line"></i>
+              Ruta revisada en aplicaciones confiables y compartida con alguien de confianza.
+            </li>
+            <li>
+              <i class="ph ph-users-three"></i>
+              Contactos en destino informados de tu llegada y horarios.
+            </li>
+          </ul>
+        </div>
+      </aside>
+    </section>
+
+    <!-- SECCIONES -->
+    <div class="sections">
+      <!-- 1. Medidas preventivas -->
+      <section id="prevencion" class="section">
+        <div class="section-header">
+          <div>
+            <div class="section-label">1 · Medidas preventivas</div>
+            <h2 class="section-title">
+              <i class="ph ph-compass"></i>
+              Antes de salir de casa
+            </h2>
+          </div>
+          <div class="section-tag">
+            Analiza zonas de riesgo · Mantén una conducta <span>activa</span> y alerta
+          </div>
+        </div>
+
+        <div class="cards-grid">
+          <article class="card">
+            <div class="card-icon-wrap">
+              <div class="card-icon">
+                <i class="ph ph-map-trifold"></i>
+              </div>
+              <div class="card-label">Planificación</div>
+            </div>
+            <h3 class="card-title">Conoce tu ruta y entorno</h3>
+            <div class="card-body">
+              <ul>
+                <li>
+                  <span class="card-bullet"></span>
+                  <span>Identifica zonas de alto riesgo y con poca iluminación; evita atajos solitarios.</span>
+                </li>
+                <li>
+                  <span class="card-bullet"></span>
+                  <span>Consulta la ruta en aplicaciones confiables antes de salir y revisa tiempos aproximados.</span>
+                </li>
+                <li>
+                  <span class="card-bullet"></span>
+                  <span>Verifica <strong>requisitos migratorios</strong> oficiales del país destino para evitar estafas.</span>
+                </li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-icon-wrap">
+              <div class="card-icon">
+                <i class="ph ph-user-focus"></i>
+              </div>
+              <div class="card-label">Información clave</div>
+            </div>
+            <h3 class="card-title">Evita sorpresas en el viaje</h3>
+            <div class="card-body">
+              <ul>
+                <li>
+                  <span class="card-bullet"></span>
+                  <span>Pide referencias a personas que ya han viajado o conocen el lugar de destino.</span>
+                </li>
+                <li>
+                  <span class="card-bullet"></span>
+                  <span>Comparte tu <strong>agenda y horarios</strong> con tu contacto en destino.</span>
+                </li>
+                <li>
+                  <span class="card-bullet"></span>
+                  <span>Deja a tu familia números de emergencia y utiliza <strong>códigos de confirmación</strong> acordados.</span>
+                </li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-icon-wrap">
+              <div class="card-icon">
+                <i class="ph ph-notebook"></i>
+              </div>
+              <div class="card-label">Contactos</div>
+            </div>
+            <h3 class="card-title">Ten siempre un plan B</h3>
+            <div class="card-body">
+              <ul>
+                <li>
+                  <span class="card-bullet"></span>
+                  <span>Anota en una libreta o tarjeta tus contactos clave: seguridad pública, empresa, hotel y familiares.</span>
+                </li>
+                <li>
+                  <span class="card-bullet"></span>
+                  <span>Piensa que tu celular puede descargarse, extraviarse o dañarse; el papel es tu respaldo.</span>
+                </li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- 2. Medidas ante agresión física -->
+      <section id="agresion" class="section">
+        <div class="section-header">
+          <div>
+            <div class="section-label">2 · Medidas ante agresión física</div>
+            <h2 class="section-title">
+              <i class="ph ph-hand-palm"></i>
+              Cómo reaccionar ante una agresión
+            </h2>
+          </div>
+          <div class="section-tag">
+            Prioriza tu integridad · Evita escalar el conflicto
+          </div>
+        </div>
+
+        <div class="cards-grid">
+          <article class="card">
+            <div class="card-icon-wrap">
+              <div class="card-icon">
+                <i class="ph ph-arrow-square-out"></i>
+              </div>
+              <div class="card-label">Retiro</div>
+            </div>
+            <h3 class="card-title">Aléjate si es posible</h3>
+            <div class="card-body">
+              <ul>
+                <li>
+                  <span class="card-bullet"></span>
+                  <span>Si puedes, <strong>retírate</strong> del lugar sin provocar a los agresores.</span>
+                </li>
+                <li>
+                  <span class="card-bullet"></span>
+                  <span>Si no es posible irte, intenta mantener la calma y hablar en tono bajo.</span>
+                </li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-icon-wrap">
+              <div class="card-icon">
+                <i class="ph ph-megaphone"></i>
+              </div>
+              <div class="card-label">Auxilio</div>
+            </div>
+            <h3 class="card-title">Pedir ayuda de forma efectiva</h3>
+            <div class="card-body">
+              <ul>
+                <li>
+                  <span class="card-bullet"></span>
+                  <span>Pide auxilio en voz alta, aunque algunas personas se alejen por miedo.</span>
+                </li>
+                <li>
+                  <span class="card-bullet"></span>
+                  <span>Al gritar, puedes usar palabras que llamen la atención como <strong>“¡Fuego!”</strong> y un apellido común del país.</span>
+                </li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- 3. Medidas reactivas (asalto / robo) -->
+      <section id="asalto" class="section">
+        <div class="section-header">
+          <div>
+            <div class="section-label">3 · Medidas reactivas</div>
+            <h2 class="section-title">
+              <i class="ph ph-shield-warning"></i>
+              Si estás siendo víctima de un asalto
+            </h2>
+          </div>
+          <div class="section-tag">
+            Tu vida es la prioridad · Objetos materiales se reemplazan
+          </div>
+        </div>
+
+        <div class="cards-grid">
+          <article class="card">
+            <div class="card-icon-wrap">
+              <div class="card-icon">
+                <i class="ph ph-heartbeat"></i>
+              </div>
+              <div class="card-label">Calma</div>
+            </div>
+            <h3 class="card-title">Controla tu reacción</h3>
+            <div class="card-body">
+              <ul>
+                <li>
+                  <span class="card-bullet"></span>
+                  <span>Ten claro que <strong>tu vida</strong> es lo más importante. No arriesgues por tus pertenencias.</span>
+                </li>
+                <li>
+                  <span class="card-bullet"></span>
+                  <span>Mantén la calma, respira profundo y muestra tus manos en todo momento.</span>
+                </li>
+                <li>
+                  <span class="card-bullet"></span>
+                  <span>Evita el contacto visual directo, pero no discutas ni desafíes a los agresores.</span>
+                </li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-icon-wrap">
+              <div class="card-icon">
+                <i class="ph ph-wallet"></i>
+              </div>
+              <div class="card-label">Movimientos</div>
+            </div>
+            <h3 class="card-title">Entrega de pertenencias</h3>
+            <div class="card-body">
+              <ul>
+                <li>
+                  <span class="card-bullet"></span>
+                  <span>Antes de sacar algo de tu bolso o billetera, <strong>avísalo</strong> con calma.</span>
+                </li>
+                <li>
+                  <span class="card-bullet"></span>
+                  <span>No hagas movimientos bruscos; sigue exactamente las indicaciones que te den.</span>
+                </li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-icon-wrap">
+              <div class="card-icon">
+                <i class="ph ph-identification-badge"></i>
+              </div>
+              <div class="card-label">Memoria</div>
+            </div>
+            <h3 class="card-title">Memoriza detalles clave</h3>
+            <div class="card-body">
+              <ul>
+                <li>
+                  <span class="card-bullet"></span>
+                  <span>Intenta recordar cómo visten, acento, tatuajes u otras señas particulares.</span>
+                </li>
+                <li>
+                  <span class="card-bullet"></span>
+                  <span>Si hay vehículo, memoriza el tipo, color y, si es posible, parte de la placa.</span>
+                </li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-icon-wrap">
+              <div class="card-icon">
+                <i class="ph ph-phone-call"></i>
+              </div>
+              <div class="card-label">Después del hecho</div>
+            </div>
+            <h3 class="card-title">Qué hacer cuando se van</h3>
+            <div class="card-body">
+              <ul>
+                <li>
+                  <span class="card-bullet"></span>
+                  <span>No intentes seguirlos. Busca de inmediato un lugar seguro e iluminado.</span>
+                </li>
+                <li>
+                  <span class="card-bullet"></span>
+                  <span>Comunícate con seguridad pública, tu familia y tu supervisor para informar tu estado y recibir apoyo.</span>
+                </li>
+                <li>
+                  <span class="card-bullet"></span>
+                  <span>Cancela cuanto antes tus <strong>tarjetas de crédito, débito</strong> y otros medios de pago.</span>
+                </li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- 4. Transporte local -->
+      <section id="transporte" class="section">
+        <div class="section-header">
+          <div>
+            <div class="section-label">4 · Transporte local</div>
+            <h2 class="section-title">
+              <i class="ph ph-bus"></i>
+              Traslados dentro de la ciudad
+            </h2>
+          </div>
+          <div class="section-tag">
+            Transporte oficial · Horarios seguros · Protección de tu información
+          </div>
+        </div>
+
+        <div class="cards-grid">
+          <article class="card">
+            <div class="card-icon-wrap">
+              <div class="card-icon">
+                <i class="ph ph-car-profile"></i>
+              </div>
+              <div class="card-label">Transporte</div>
+            </div>
+            <h3 class="card-title">Elige cómo moverte</h3>
+            <div class="card-body">
+              <ul>
+                <li>
+                  <span class="card-bullet"></span>
+                  <span>Utiliza únicamente el <strong>transporte oficial</strong> asignado por la empresa.</span>
+                </li>
+                <li>
+                  <span class="card-bullet"></span>
+                  <span>Evita salir o desplazarte en horas nocturnas si no es estrictamente necesario.</span>
+                </li>
+                <li>
+                  <span class="card-bullet"></span>
+                  <span>Usa zapatos cómodos que te permitan moverte rápido en caso de emergencia.</span>
+                </li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-icon-wrap">
+              <div class="card-icon">
+                <i class="ph ph-device-mobile-camera"></i>
+              </div>
+              <div class="card-label">Privacidad</div>
+            </div>
+            <h3 class="card-title">Cuida tu información</h3>
+            <div class="card-body">
+              <ul>
+                <li>
+                  <span class="card-bullet"></span>
+                  <span>No compartas con extraños datos como duración de tu estadía, hotel o itinerario.</span>
+                </li>
+                <li>
+                  <span class="card-bullet"></span>
+                  <span>No abras <strong>links</strong> desconocidos; algunos pueden dar acceso a tu celular y contactos.</span>
+                </li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- 5. Aeropuerto / frontera -->
+      <section id="aeropuerto" class="section">
+        <div class="section-header">
+          <div>
+            <div class="section-label">5 · Aeropuerto y frontera</div>
+            <h2 class="section-title">
+              <i class="ph ph-airplane-takeoff"></i>
+              Seguridad en aeropuerto y fronteras
+            </h2>
+          </div>
+          <div class="section-tag">
+            Documentos listos · Equipaje seguro · Dinero bajo control
+          </div>
+        </div>
+
+        <div class="cards-grid">
+          <article class="card">
+            <div class="card-icon-wrap">
+              <div class="card-icon">
+                <i class="ph ph-identification-card"></i>
+              </div>
+              <div class="card-label">Documentos</div>
+            </div>
+            <h3 class="card-title">Ten todo preparado</h3>
+            <div class="card-body">
+              <ul>
+                <li>
+                  <span class="card-bullet"></span>
+                  <span>Lleva tus documentos listos, bien guardados y siempre bajo tu control.</span>
+                </li>
+                <li>
+                  <span class="card-bullet"></span>
+                  <span>Asegura tu equipaje, ciérralo correctamente y mantenlo siempre a la vista.</span>
+                </li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-icon-wrap">
+              <div class="card-icon">
+                <i class="ph ph-handshake"></i>
+              </div>
+              <div class="card-label">Interacciones</div>
+            </div>
+            <h3 class="card-title">Relación con terceros</h3>
+            <div class="card-body">
+              <ul>
+                <li>
+                  <span class="card-bullet"></span>
+                  <span>No brindes información personal a extraños ni aceptes ayuda para “agilizar” trámites.</span>
+                </li>
+                <li>
+                  <span class="card-bullet"></span>
+                  <span>No descargues aplicaciones recomendadas por personas que no conoces.</span>
+                </li>
+                <li>
+                  <span class="card-bullet"></span>
+                  <span>Evita cargar sumas grandes de dinero en efectivo; prefiere medios de pago seguros.</span>
+                </li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </section>
+    </div>
+
+    <p class="footer-note">
+      <i class="ph ph-ribbon"></i>
+      Ante cualquier incidente, informa de inmediato a Seguridad Pública, a tu contacto en destino
+      y a tu supervisor para activar los protocolos de apoyo de
+      <strong>Prevención Franquicias Internacionales</strong>.
+    </p>
+  </main>
+
+  <script>
+    // Navegación suave a secciones
+    document.addEventListener("DOMContentLoaded", function () {
+      document.querySelectorAll("[data-scroll-to]").forEach(function (btn) {
+        btn.addEventListener("click", function () {
+          const targetId = btn.getAttribute("data-scroll-to");
+          const target = document.getElementById(targetId);
+          if (target) {
+            target.scrollIntoView({ behavior: "smooth", block: "start" });
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>
