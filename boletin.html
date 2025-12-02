@@ -8,6 +8,14 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css"
+    />
     <script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
     <style>
       :root {
@@ -247,8 +255,68 @@
         position: relative;
       }
 
+      .badges {
+        display: flex;
+        justify-content: center;
+        gap: 0.75rem;
+        flex-wrap: wrap;
+        margin: 0.5rem auto 0;
+        padding: 0 0.6rem;
+        animation: fadeInUp 0.8s ease-out 0.45s both;
+      }
+
+      .badge-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.55rem 0.95rem;
+        border-radius: 999px;
+        background: rgba(220, 38, 38, 0.08);
+        color: var(--headline);
+        font-weight: 600;
+        font-size: 0.92rem;
+        border: 1px solid rgba(220, 38, 38, 0.15);
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6);
+      }
+
+      .badge-pill i {
+        color: var(--accent);
+        font-size: 1.1rem;
+      }
+
+      .cta-row {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 0.8rem;
+        margin-top: 0.6rem;
+        animation: fadeInUp 0.8s ease-out 0.5s both;
+      }
+
+      .cta-card {
+        padding: 0.85rem 1rem;
+        border-radius: 16px;
+        background: linear-gradient(135deg, rgba(220, 38, 38, 0.08), rgba(15, 23, 42, 0.02));
+        border: 1px solid rgba(15, 23, 42, 0.05);
+        display: flex;
+        align-items: center;
+        gap: 0.65rem;
+        justify-content: center;
+        color: var(--headline);
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.7), 0 12px 20px rgba(15, 23, 42, 0.08);
+      }
+
+      .cta-card strong {
+        color: var(--accent);
+        letter-spacing: 0.08em;
+      }
+
+      .cta-card i {
+        color: var(--accent);
+      }
+
       .grid {
         display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
         gap: clamp(1.4rem, 2vw, 2rem);
       }
 
@@ -581,20 +649,37 @@
   <body>
     <main>
       <header>
-        <div class="brand">
+        <div class="brand" data-aos="zoom-in">
           <img src="https://pruebas.franqui.club/ess.png" alt="Prevención Franquicias Internacionales" />
           <span>Seguridad Ess</span>
         </div>
-        <h1>Prevención Franquicias Internacionales</h1>
-        <p>
+        <h1 data-aos="fade-up">Prevención Franquicias Internacionales</h1>
+        <p data-aos="fade-up" data-aos-delay="80">
           Traslados nocturnos seguros de casa al trabajo y regreso. Objetivo:
           mantener la atención activa, leer el entorno y anticipar riesgos para
           proteger tu integridad.
         </p>
+
+        <div class="badges" data-aos="fade-up" data-aos-delay="120">
+          <span class="badge-pill"><i class="ph ph-clock-counter-clockwise"></i>Vigilancia continua</span>
+          <span class="badge-pill"><i class="ph ph-shield-chevron"></i>Protocolos certificados</span>
+          <span class="badge-pill"><i class="ph ph-star"></i>Equipos capacitados</span>
+        </div>
+
+        <div class="cta-row" data-aos="fade-up" data-aos-delay="160">
+          <div class="cta-card">
+            <i class="ph ph-phone-call"></i>
+            <span>Reporta incidentes al <strong>911</strong> y a tu supervisor.</span>
+          </div>
+          <div class="cta-card">
+            <i class="ph ph-map-pin"></i>
+            <span>Comparte tu <strong>ubicación</strong> durante el trayecto.</span>
+          </div>
+        </div>
       </header>
 
       <div class="grid">
-        <section>
+        <section data-aos="fade-up">
           <div class="icon-wrapper"><i class="ph ph-compass"></i></div>
           <div class="content">
             <h2>Preparación Inteligente</h2>
@@ -620,7 +705,7 @@
           </div>
         </section>
 
-        <section>
+        <section data-aos="fade-up" data-aos-delay="80">
           <div class="icon-wrapper"><i class="ph ph-shield-check"></i></div>
           <div class="content">
             <h2>Atención en Ruta</h2>
@@ -642,7 +727,7 @@
           </div>
         </section>
 
-        <section>
+        <section data-aos="fade-up" data-aos-delay="120">
           <div class="icon-wrapper"><i class="ph ph-hand-fist"></i></div>
           <div class="content">
             <h2>Ante Agresión Física</h2>
@@ -664,7 +749,7 @@
           </div>
         </section>
 
-        <section>
+        <section data-aos="fade-up" data-aos-delay="160">
           <div class="icon-wrapper"><i class="ph ph-warning"></i></div>
           <div class="content">
             <h2>Respuesta a Asalto</h2>
@@ -690,7 +775,7 @@
           </div>
         </section>
 
-        <section>
+        <section data-aos="fade-up" data-aos-delay="200">
           <div class="icon-wrapper"><i class="ph ph-van"></i></div>
           <div class="content">
             <h2>Transporte Local</h2>
@@ -712,7 +797,7 @@
           </div>
         </section>
 
-        <section>
+        <section data-aos="fade-up" data-aos-delay="240">
           <div class="icon-wrapper"><i class="ph ph-airplane-takeoff"></i></div>
           <div class="content">
             <h2>Aeropuerto y Frontera</h2>
@@ -745,5 +830,13 @@
         Franquicias Internacionales.
       </p>
     </main>
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script>
+      AOS.init({
+        once: true,
+        duration: 800,
+        easing: "ease-out-cubic",
+      });
+    </script>
   </body>
 </html>
